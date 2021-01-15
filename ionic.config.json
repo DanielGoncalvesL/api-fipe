@@ -1,0 +1,8 @@
+{
+  "name": "api-fipe",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular",
+  "id": "77d51e5f"
+}
