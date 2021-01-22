@@ -1,0 +1,66 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Tabela FIPE
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Tabela FIPE </ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Veiculo</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="stacked">Tipo de Veiculo</ion-label>
+        <ion-select value="carros" okText="Confirmar" cancelText="Cancelar" placeholder="Selecione uma opção" required
+          [(ngModel)]="dado" (ngModelChange)="buscarMarcas($event)">
+          <ion-select-option value="carros">Carros</ion-select-option>
+          <ion-select-option value="motos">Motos</ion-select-option>
+          <ion-select-option value="caminhoes">Caminhões</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Marca do Veiculo</ion-label>
+        <ion-select value="" okText="Confirmar" cancelText="Cancelar" placeholder="Selecione uma opção"
+          [(ngModel)]="dado" (ngModelChange)="buscarModelos($event)" [disabled]="disableMarcas">
+          <ion-select-option *ngFor="let veiculo of veiculos" value={{veiculo.id}}>{{veiculo.name}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Modelo do Veiculo</ion-label>
+        <ion-select value="" okText="Confirmar" cancelText="Cancelar" placeholder="Selecione uma opção">
+          <ion-select-option *ngFor="let veiculo of veiculos" value={{veiculo.id}}>{{veiculo.name}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Ano do Veiculo</ion-label>
+        <ion-select value="" okText="Confirmar" cancelText="Cancelar" placeholder="Selecione uma opção">
+          <ion-select-option *ngFor="let veiculo of veiculos" value={{veiculo.id}}>{{veiculo.name}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-button expand="block" color="warning" (click)="limpar()">
+          Limpar
+        </ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button expand="block" color="success" (click)="buscar()">
+          Buscar
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

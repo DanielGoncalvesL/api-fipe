@@ -1,8 +1,5 @@
 {
-  "name": "api-fipe",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "angular",
-  "id": "77d51e5f"
+  "name": "tabela-fipe",
+  "integrations": {},
+  "type": "angular"
 }
