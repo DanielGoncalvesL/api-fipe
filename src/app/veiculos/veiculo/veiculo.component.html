@@ -21,7 +21,7 @@
       <ion-item>
         <ion-label position="stacked">Tipo de Veiculo</ion-label>
         <ion-select value="carros" okText="Confirmar" cancelText="Cancelar" placeholder="Selecione uma opção" required
-          [(ngModel)]="dado" (ngModelChange)="buscarMarcas($event)">
+          [(ngModel)]="tipoVeiculo" (ngModelChange)="buscarMarcas($event)">
           <ion-select-option value="carros">Carros</ion-select-option>
           <ion-select-option value="motos">Motos</ion-select-option>
           <ion-select-option value="caminhoes">Caminhões</ion-select-option>
@@ -29,22 +29,28 @@
       </ion-item>
       <ion-item>
         <ion-label position="stacked">Marca do Veiculo</ion-label>
-        <ion-select value="" okText="Confirmar" cancelText="Cancelar" placeholder="Selecione uma opção"
-          [(ngModel)]="dado" (ngModelChange)="buscarModelos($event)" [disabled]="disableMarcas">
-          <ion-select-option *ngFor="let veiculo of veiculos" value={{veiculo.id}}>{{veiculo.name}}</ion-select-option>
+        <ion-select value="" okText="Confirmar" cancelText="Cancelar" placeholder="Selecione uma opção" required
+          [(ngModel)]="marcaVeiculo" (ngModelChange)="buscarModelos($event)" [disabled]="disableMarca">
+          <ion-select-option *ngFor="let marca of marcas" value={{marca.id}}>{{marca.name}}</ion-select-option>
         </ion-select>
       </ion-item>
       <ion-item>
         <ion-label position="stacked">Modelo do Veiculo</ion-label>
-        <ion-select value="" okText="Confirmar" cancelText="Cancelar" placeholder="Selecione uma opção">
-          <ion-select-option *ngFor="let veiculo of veiculos" value={{veiculo.id}}>{{veiculo.name}}</ion-select-option>
+        <ion-select value="" okText="Confirmar" cancelText="Cancelar" placeholder="Selecione uma opção"required
+        [(ngModel)]="modeloVeiculo" (ngModelChange)="buscarAno($event)" [disabled]="disableModelo">
+          <ion-select-option *ngFor="let modelo of modelos" value={{modelo.id}}>{{modelo.name}}</ion-select-option>
         </ion-select>
       </ion-item>
       <ion-item>
         <ion-label position="stacked">Ano do Veiculo</ion-label>
-        <ion-select value="" okText="Confirmar" cancelText="Cancelar" placeholder="Selecione uma opção">
-          <ion-select-option *ngFor="let veiculo of veiculos" value={{veiculo.id}}>{{veiculo.name}}</ion-select-option>
+        <ion-select value="" okText="Confirmar" cancelText="Cancelar" placeholder="Selecione uma opção"required [disabled]="disableAno" required
+        [(ngModel)]="anoVeiculo" (ngModelChange)="buscarVeiculo($event)" [disabled]="disableAno">
+          <ion-select-option *ngFor="let ano of anos" value={{ano.id}}>{{ano.name}}</ion-select-option>
         </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label position="fixed">Valor</ion-label>
+        <ion-input disabled>{{veiculo?.preco}}</ion-input>
       </ion-item>
     </ion-card-content>
   </ion-card>
